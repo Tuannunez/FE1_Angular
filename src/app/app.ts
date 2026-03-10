@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   title = 'my-app';
-  fullName = 'Pttuan';
+  fullName = 'Angular';
   age =  10;
 
   sayHello(){
