@@ -9,10 +9,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   title = 'my-app';
-  fullname = 'Angular 15';
+  fullName = 'Pttuan';
   age =  10;
 
-  sayhello(){
+  sayHello(){
     console.log('hello');
+    alert('hello' + this.fullName);
   }
 }
