@@ -1,3 +1,16 @@
 import { Routes } from '@angular/router';
+import { Home } from './home/home';
+import { About } from './about/about';
+import { Contact } from './pages/contact/contact';
+export const routes: Routes = [
+    {
+         path: 'home', component: Home 
+    },
+    {
+         path: 'about', component: About ,
+    },
+    {
+         path: 'contact', component: Contact ,
+    }
 
-export const routes: Routes = [];
+];
