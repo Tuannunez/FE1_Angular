@@ -1,13 +1,57 @@
 <h2>Danh sách truyện tranh</h2>
 
-@for (story of stories; track story.title) {
+@if (stories.length === 0) {
 
-<div class="story-card">
-  <h3>{{ story.title }}</h3>
+<p class="empty">Không có truyện nào</p>
 
-  <p>Tác giả: {{ story.author }}</p>
+} @else {
 
-  <p>Lượt xem: {{ story.views }}</p>
-</div>
+<table class="story-table">
+
+<thead>
+<tr>
+<th>STT</th>
+<th>Hình ảnh</th>
+<th>Tên truyện</th>
+<th>Tác giả</th>
+<th>Thể loại</th>
+<th>Lượt xem</th>
+</tr>
+</thead>
+
+<tbody>
+
+@for (story of stories; track story.title; let i = $index) {
+
+<tr>
+
+<td>{{ i + 1 }}</td>
+
+<td>
+<img [src]="story.image" alt="{{story.title}}">
+</td>
+
+<td>
+{{ story.title }}
+
+@if (story.views > 90000) {
+<span class="hot">HOT</span>
+}
+
+</td>
+
+<td>{{ story.author }}</td>
+
+<td>{{ story.category }}</td>
+
+<td>{{ story.views }}</td>
+
+</tr>
+
+}
+
+</tbody>
+
+</table>
 
 }
