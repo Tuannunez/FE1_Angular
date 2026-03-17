@@ -1,0 +1,29 @@
+<h2>Thêm truyện tranh</h2>
+
+<form [formGroup]="addForm" (ngSubmit)="submitForm()">
+
+  <div>
+    <label>Tên truyện</label>
+    <input type="text" formControlName="name" />
+    <small style="color:red">
+      {{ addForm.get('name')?.errors?.['required'] ? 'Tên bắt buộc' : '' }}
+    </small>
+  </div>
+
+  <div>
+    <label>Giá</label>
+    <input type="number" formControlName="price" />
+    <small style="color:red">
+      {{ addForm.get('price')?.errors?.['required'] ? 'Giá bắt buộc' : '' }}
+      {{ addForm.get('price')?.errors?.['min'] ? 'Giá phải > 0' : '' }}
+    </small>
+  </div>
+
+  <div>
+    <label>Thể loại</label>
+    <input type="text" formControlName="category" />
+  </div>
+
+  <button type="submit">Thêm truyện</button>
+
+</form>

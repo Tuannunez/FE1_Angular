@@ -7,6 +7,8 @@ import { Phone } from './pages/products/phone/phone';
 import { Laptop } from './pages/products/laptop/laptop';
 import { Stories } from './pages/stories/stories';
 import { AddStory } from './pages/add-story/add-story';
+import { AddProduct } from './pages/add-product/add-product';
+import { Register } from './pages/register/register';
 
 
 export const routes: Routes = [
@@ -31,6 +33,12 @@ export const routes: Routes = [
     },
     {
         path: 'add-story', component: AddStory,
+    },
+    {
+        path: 'add-product', component: AddProduct,
+    },
+    {
+        path: 'register', component: Register,
     },
    
 
