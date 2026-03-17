@@ -6,6 +6,8 @@ import { Products } from './pages/products/products';
 import { Phone } from './pages/products/phone/phone';
 import { Laptop } from './pages/products/laptop/laptop';
 import { Stories } from './pages/stories/stories';
+import { AddStory } from './pages/add-story/add-story';
+
 
 export const routes: Routes = [
     {
@@ -26,6 +28,9 @@ export const routes: Routes = [
     },
     {
         path: 'stories', component: Stories,
+    },
+    {
+        path: 'add-story', component: AddStory,
     },
    
 
