@@ -1,0 +1,43 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "truyện ma",
+      "id": 2
+    },
+    {
+      "title": "7 viên ngọc rồng",
+      "id": 3
+    },
+    {
+      "title": "truyện cười",
+      "id": 4
+    },
+    {
+      "title": "Truyện hài",
+      "author": "Minh Hải",
+      "views": -10,
+      "id": 5
+    },
+    {
+      "title": "Truyện làng Hạ",
+      "author": "hahah",
+      "views": 200,
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,9 +1,14 @@
 <h2>Thêm truyện tranh</h2>
 
 <form [formGroup]="addForm" (ngSubmit)="submitForm()">
+  
   <div>
     <label>Tên truyện</label>
     <input type="text" formControlName="title" />
+
+    @if (addForm.get('title')?.touched && addForm.get('title')?.invalid) {
+      <small style="color:red">Không được để trống</small>
+    }
   </div>
 
   <div>
@@ -16,5 +21,16 @@
     <input type="number" formControlName="views" />
   </div>
 
-  <button type="submit">Thêm truyện</button>
+  <button type="submit" [disabled]="loading">
+    {{ loading ? 'Đang gửi...' : 'Thêm truyện' }}
+  </button>
+
 </form>
+
+@if (success) {
+  <p style="color: green">{{ success }}</p>
+}
+
+@if (error) {
+  <p style="color: red">{{ error }}</p>
+}
