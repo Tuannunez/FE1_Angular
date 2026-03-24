@@ -2,28 +2,32 @@
 
 <form [formGroup]="addForm" (ngSubmit)="submitForm()">
 
+
   <div>
-    <label>Tên truyện</label>
-    <input type="text" formControlName="name" />
+    <label>Tiêu đề</label>
+    <input type="text" formControlName="title" />
     <small style="color:red">
-      {{ addForm.get('name')?.errors?.['required'] ? 'Tên bắt buộc' : '' }}
+      {{ addForm.get('title')?.errors?.['required'] ? 'Tiêu đề bắt buộc' : '' }}
     </small>
   </div>
 
+  
   <div>
-    <label>Giá</label>
-    <input type="number" formControlName="price" />
+    <label>Tác giả</label>
+    <input type="text" formControlName="author" />
     <small style="color:red">
-      {{ addForm.get('price')?.errors?.['required'] ? 'Giá bắt buộc' : '' }}
-      {{ addForm.get('price')?.errors?.['min'] ? 'Giá phải > 0' : '' }}
+      {{ addForm.get('author')?.errors?.['required'] ? 'Tác giả bắt buộc' : '' }}
     </small>
   </div>
 
+
   <div>
-    <label>Thể loại</label>
-    <input type="text" formControlName="category" />
+    <label>Lượt xem</label>
+    <input type="number" formControlName="views" />
   </div>
 
-  <button type="submit">Thêm truyện</button>
+  <button type="submit" [disabled]="addForm.invalid">
+    Thêm truyện
+  </button>
 
 </form>

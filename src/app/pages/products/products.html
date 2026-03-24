@@ -1,8 +1,40 @@
-<p>Danh sách sp</p>
-<ul>
-    <li><a routerLink="/products/laptop">Laptop</a></li>
-    <li><a routerLink="/products/phone">Phone</a></li>
-    <li><a routerLink="/products/tablet">Tablet</a></li>
-</ul>
-<router-outlet></router-outlet>
+<h2>Danh sách truyện</h2>
 
+<p *ngIf="loading">Đang tải...</p>
+<p *ngIf="error" style="color:red">{{ error }}</p>
+
+<table *ngIf="!loading && !error" border="1">
+  <tr>
+    <th>ID</th>
+    <th>Tiêu đề</th>
+    <th>Tác giả</th>
+    <th>Views</th>
+    <th>HOT</th>
+    <th>Hành động</th>
+  </tr>
+
+
+  <tr *ngFor="let p of products">
+    <td>{{ p.id }}</td>
+    <td>{{ p.title }}</td>
+    <td>{{ p.author }}</td>
+    <td>{{ p.views }}</td>
+
+    
+    <td>
+      <span *ngIf="p.views > 90000" style="color:red">
+        HOT 
+      </span>
+    </td>
+
+    
+    <td>
+      <button 
+        (click)="deleteProduct(p.id)"
+        [disabled]="deletingId === p.id"
+      >
+        {{ deletingId === p.id ? 'Đang xóa...' : 'Xóa' }}
+      </button>
+    </td>
+  </tr>
+</table>

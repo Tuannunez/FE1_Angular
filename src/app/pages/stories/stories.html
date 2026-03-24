@@ -1,50 +1,41 @@
 <h2>Danh sách truyện tranh</h2>
+@if(loading){
+    <p>Đang tải dữ liệu</p>
+}@if(error){
+    <p style="color: red">{{error}}</p>
+}@if (!loading && stories.length === 0) {
 
-@if (stories.length === 0) {
 
 <p class="empty">Không có truyện nào</p>
 
-} @else {
+} @if(stories.length > 0){
 
 <table class="story-table">
 
-<thead>
+
 <tr>
-<th>STT</th>
-<th>Hình ảnh</th>
+<th>ID</th>
 <th>Tên truyện</th>
 <th>Tác giả</th>
-<th>Thể loại</th>
 <th>Lượt xem</th>
+<th>Hành động</th>
 </tr>
-</thead>
+
 
 <tbody>
 
-@for (story of stories; track story.title; let i = $index) {
+@for (story of stories; track story.id) {
 
 <tr>
 
-<td>{{ i + 1 }}</td>
+<td>{{ story.id}}</td>
+<td>{{ story.title}}</td>
+<td>{{ story.author}}</td>
+<td>{{ story.views}}</td>
 
 <td>
-<img [src]="story.image" alt="{{story.title}}">
+<button (click)="deleteStory(story.id)">Xóa</button>
 </td>
-
-<td>
-{{ story.title }}
-
-@if (story.views > 90000) {
-<span class="hot">HOT</span>
-}
-
-</td>
-
-<td>{{ story.author }}</td>
-
-<td>{{ story.category }}</td>
-
-<td>{{ story.views }}</td>
 
 </tr>
 
